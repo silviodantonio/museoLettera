@@ -77,51 +77,68 @@ header h1 {
 	margin-top: 3%;
 	width: 70%;
 	line-height: 1.5rem;
-	margin: 20px 0% 5vh;
+	margin: 20px 0% 70px;
+}
+
+/* Titolo sezione opere */
+h2 {
+	font-size: calc(2.5rem + 1.2vw);
+	margin-bottom: 60px;
 }
 
 /* images section */
 
 #images {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 1fr 1fr;
-	height: 35vw;
-	grid-template-areas: "left left right-top right-top"
-						 "left left left-quarter right-quarter";
-	grid-gap: 1em;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	grid-gap: calc(20px + 3vw);
 }
 
-#images > div {
+.artworkWrapper {
+	height: auto;
+	width: 100%;
+}
+
+.image {
+	width: 100%;
+	padding-bottom: 130%;
 	background-color: black;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-#images > div:hover {
+/* titolo opere */
+
+.artworkWrapper h2 {
+	text-transform: uppercase;
+	font-size: calc(1rem + 1.2vw);
+	margin-top: 20px;
+}
+
+.image:hover {
 	opacity: 80%;
 }
 
-#left {
-	grid-area: left;
-	background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/708a56107183799.5fa15a8ddcd2d.png");
+#img1 {
+	background-image: url("images/yev1.jpg");
 }
 
-
-#right-top {
-	grid-area: right-top;
-	background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b4fecd103536681.5f4f59863afe2.jpg");
+#img2 {
+	background-image: url("images/yev2.jpg");
 }
 
-#right-quarter {
-	grid-area: right-quarter;
-	background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/2d3aae116054891.605a5916a8cb1.jpg");
+#img3 {
+	background-image: url("images/yev3.jpg");
 }
 
-#left-quarter {
-	grid-area: left-quarter;
-	background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6a5eb692347769.5e4971c6423cc.jpg");
+#img4 {
+	background-image: url("images/yev4.jpg");
+}
+
+#img5 {
+	background-image: url("images/yev5.jpg");
 }
 
 /* footer */
@@ -187,15 +204,11 @@ footer a:link, footer a:visited {
 	}
 
 	#images {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 2fr 1fr 1fr;
-		height: 120vw;
-		grid-template-areas: "left left"
-							 "right-top right-top"
-							 "left-quarter right-quarter";
-		grid-gap: 1em;
-	}
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-gap: calc(20px + 3vw);
+}
 
 	footer {
 		font-size: 1rem;
