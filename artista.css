@@ -81,7 +81,7 @@ header h1 {
 }
 
 /* Titolo sezione opere */
-h2 {
+body > h2 {
 	font-size: calc(2.5rem + 1.2vw);
 	margin-bottom: 60px;
 }
@@ -171,6 +171,20 @@ footer a:link, footer a:visited {
 
 /* visualizzazione tablet */
 
+@media screen and (max-width: 1024px) {
+
+	#images {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		grid-gap: calc(20px + 3vw);
+	}
+
+	#bio {
+		width: 100%;
+	}
+}
+
 @media screen and (max-width: 768px) {
 
 	nav {
@@ -200,7 +214,12 @@ footer a:link, footer a:visited {
 	}
 
 	#bio {
-		width: 100%;
+		margin-bottom: 10%;
+	}
+
+	body > h2 {
+		font-size: calc(.5rem + 5vw);
+		margin-bottom: 10%;
 	}
 
 	#images {
@@ -208,7 +227,8 @@ footer a:link, footer a:visited {
 	grid-template-columns: 1fr;
 	grid-template-rows: auto;
 	grid-gap: calc(20px + 3vw);
-}
+
+	}
 
 	footer {
 		font-size: 1rem;
