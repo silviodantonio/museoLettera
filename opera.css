@@ -1,0 +1,192 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	font-family: 'Montserrat';
+	padding: 30px 10%;
+	font-weight: 400;
+}
+
+/* navbar general alignment and positioning*/
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+nav ul {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+	position: relative;
+	top: 5px;
+	width: 300px;
+}
+
+nav li {
+	display: inline;
+}
+
+/* navbar title label */
+
+#navbar-title {
+	outline: none;
+	text-decoration: none;
+	font-family: 'Roboto Slab';
+	font-size: calc(1em + .7vw);
+}
+
+#navbar-title:link, #navbar-title:visited {
+	color: black;
+}
+
+/* navbar labels styles */
+
+#navbar-labels a {
+	text-decoration: none;
+	font-size: 1rem;
+}
+
+#navbar-labels a:link, #navbar-labels a:visited {
+	color: black;
+}
+
+#navbar-labels a:hover {
+	color: gray;
+}
+
+/* header */
+
+header h1 {
+	font-size: calc(2.5rem + 1.2vw);
+	margin: 1% 0% 3%;
+}
+
+/* artwork section */
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-gap: 30px;
+}
+
+.image {
+	width: 100%;
+	padding-bottom: 130%;
+	background-color: black;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("images/yev2.jpg");
+}
+
+#info {
+	list-style: none;
+	display: inline;
+	line-height: 1.5rem;
+	padding: 0;
+}
+
+#info a {
+	text-decoration: none;
+}
+
+#info a:link, #info a:visited {
+	color: black;
+}
+
+#info a:hover {
+	color: gray;
+}
+
+/* footer */
+
+footer {
+	margin-top: 70px;
+	margin-bottom: 40px;
+	font-family: 'Montserrat';
+	font-weight: 400;
+	font-size: 1rem;
+}
+
+#footer-title {
+	font-family: 'Roboto Slab';
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+footer p {
+	line-height: 1.5rem;
+}
+
+footer a {
+	text-decoration: none;
+}
+
+footer a:link, footer a:visited {
+	color: gray;
+}
+
+/* visualizzazione tablet */
+
+@media screen and (max-width: 1024px) {
+
+}
+
+/* visualizzazione smartphone */
+
+@media screen and (max-width: 768px) {
+
+	nav {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: start;
+		flex-wrap: nowrap;
+	}
+
+	#navbar-title {
+		font-size: 1.5rem;
+		margin-bottom: -10px;
+	}	
+
+	nav ul {
+		display: flex;
+		width: 280px;
+		position: relative;
+		left: -40px;
+	}
+
+	header h1 {
+		font-size: calc(.5rem + 5vw);
+		line-height: 1.4em;
+		margin: 3% 0%;
+	}
+
+	#bio {
+		margin-bottom: 10%;
+	}
+
+	body > h2 {
+		font-size: calc(.5rem + 5vw);
+		margin-bottom: 10%;
+	}
+
+	#images {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-gap: calc(20px + 3vw);
+
+	}
+
+	footer {
+		font-size: 1rem;
+		margin-top: 50px;
+	}
+
+}
