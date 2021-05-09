@@ -1,0 +1,122 @@
+html {
+	font-size: 16px;
+}
+
+body {
+	font-family: 'Montserrat';
+	padding: 30px 10%;
+	font-weight: 400;
+}
+
+/* navbar general alignment and positioning*/
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+nav ul {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+	position: relative;
+	top: 5px;
+	width: 300px;
+}
+
+nav li {
+	display: inline;
+}
+
+/* navbar title label */
+
+#navbar-title {
+	outline: none;
+	text-decoration: none;
+	font-family: 'Roboto Slab';
+	font-size: calc(1em + .7vw);
+}
+
+#navbar-title:link, #navbar-title:visited {
+	color: black;
+}
+
+/* navbar labels styles */
+
+#navbar-labels a {
+	text-decoration: none;
+	font-size: 1em;
+}
+
+#navbar-labels a:link, #navbar-labels a:visited {
+	color: black;
+}
+
+#navbar-labels a:hover {
+	color: gray;
+}
+
+/* footer */
+
+footer {
+	margin-top: 70px;
+	margin-bottom: 40px;
+	font-family: 'Montserrat';
+	font-weight: 400;
+	font-size: 1rem;
+}
+
+#footer-title {
+	font-family: 'Roboto Slab';
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+footer p {
+	line-height: 1.5rem;
+}
+
+footer a {
+	text-decoration: none;
+}
+
+footer a:link, footer a:visited {
+	color: gray;
+}
+
+/* style for smartphones */
+
+@media screen and (max-width: 768px) {
+
+	/* navbar */
+
+	nav {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: start;
+		flex-wrap: nowrap;
+	}
+
+	#navbar-title {
+		font-size: 1.5rem;
+		margin-bottom: -10px;
+	}	
+
+	nav ul {
+		display: flex;
+		width: 280px;
+		position: relative;
+		left: -40px;
+	}
+
+	/* footer */
+
+	footer {
+		font-size: 1rem;
+		margin-top: 50px;
+	}
+
+}
