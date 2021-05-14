@@ -1,0 +1,124 @@
+
+/* header */
+
+header h1 {
+	font-size: calc(2.5rem + 1.2vw);
+	margin: 1% 0% 1%;
+}
+
+header p {
+	margin-bottom: 8%;
+}
+
+/* images section */
+
+#images {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	grid-gap: calc(20px + 3vw);
+}
+
+.artworkWrapper {
+	height: auto;
+	width: 100%;
+}
+
+.image {
+	width: 100%;
+	padding-bottom: 130%;
+	background-color: black;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* titolo opere */
+
+.title {
+	text-transform: uppercase;
+	font-size: calc(1rem + 1.2vw);
+	margin-top: 20px;
+	margin-bottom: -20px;
+}
+
+.artworkWrapper a {
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+.artworkWrapper a:link, .artworkWrapper a:visited {
+	color: black;
+}
+
+.artworkWrapper a:hover {
+	color: darkgray;
+}
+
+.image:hover {
+	opacity: 80%;
+}
+
+#img1 {
+	background-image: url("images/yev1.jpg");
+}
+
+#img2 {
+	background-image: url("images/yev2.jpg");
+}
+
+#img3 {
+	background-image: url("images/yev3.jpg");
+}
+
+#img4 {
+	background-image: url("images/yev4.jpg");
+}
+
+#img5 {
+	background-image: url("images/yev5.jpg");
+}
+
+/* visualizzazione tablet */
+
+@media screen and (max-width: 1024px) {
+
+	#images {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		grid-gap: calc(20px + 3vw);
+	}
+
+	#bio {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+
+	header h1 {
+		font-size: calc(.5rem + 5vw);
+		line-height: 1.4em;
+		margin: 3% 0%;
+	}
+
+	#bio {
+		margin-bottom: 10%;
+	}
+
+	body > h2 {
+		font-size: calc(.5rem + 5vw);
+		margin-bottom: 10%;
+	}
+
+	#images {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-gap: calc(20px + 3vw);
+
+	}
+
+}
