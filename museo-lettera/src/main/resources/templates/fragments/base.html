@@ -1,0 +1,33 @@
+<! DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">	
+	<title>Museo Lettera</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+	<link rel="stylesheet" th:href="@{/stylesheets/navbar-footer.css}">
+	<link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300}">
+</head>
+
+<body>
+
+<nav th:fragment="navbar">
+	<a id="navbar-title" href="/">museo lettera</a>
+	<ul id="navbar-labels">
+		<li><a href="artisti">Autori</a></li>
+		<li><a th:href="@{collezioni.html}">Collezioni</a></li>
+		<li><a th:href="@{#}">Informazioni</a></li>
+	</ul>
+</nav>
+
+<footer th:fragment="footer">
+	<h1 id="footer-title">museo lettera</h1>
+	<p>Via dell'Arte 3, Roma (RM)
+	<br><a href="#">Orari di apertura</a></p>
+	<a href="mailto:info@museolettera.it">info@museolettera.it</a>
+	<a href="accesso-gestori">Accesso gestori</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/base.html :: head"></head>
+<head>
+	<link rel="stylesheet" th:href="@{/stylesheets/index.css}">
+</head>
+
+<body>
+	
+	<nav th:replace="fragments/base.html :: navbar"></nav>
+
+	<header>
+		<h1>museo della tipografia 
+		<br>e del design grafico </h1>
+	</header>
+	
+	<section id="images">
+		<div id="left"></div>
+		<div id="right-top"></div>
+		<div id="left-quarter"></div>
+		<div id="right-quarter"></div>
+	</section>
+
+	<footer th:replace="fragments/base.html :: footer">	</footer>
+
+</body>
+
+</html>

@@ -14,9 +14,10 @@ public class Opera {
 	private String nome;
 	private String descrizione;
 	@ManyToOne
-	private Autore autore;
+	private Artista autore;
 	private String anno;
 	@ManyToOne
 	private Collezione collezione;
+	private String artwork;
 	
 }

@@ -11,37 +11,28 @@
 </head>
 
 <body>
-	
-	<nav>
-		<a id="navbar-title" href="index.html">museo lettera</a>
-		<ul id="navbar-labels">
-			<li><a href="#">Autori</a></li>
-			<li><a href="#">Collezioni</a></li>
-			<li><a href="#">Informazioni</a></li>
-		</ul>
-	</nav>
 
 	<header>
 		<h1 th:text="${autore.nome}">Yevheniia
 		<br th:text="${autore.cognome}">Berezyna</h1>
 	</header>
 
-	<section>
+	<section th:object=${autore}>
 			<ul id="info">
 				<li>
 					<strong>Data di nascita:</strong>
-					<span>10 Giugno 1989</span>
+					<span th:text=*{dataNascita}>10 Giugno 1989</span>
 				</li>
 				<li>
 					<strong>Luogo di nascita</strong>
-					<span>Kiev, Ucraina</span>
+					<span th:text=*{luogoNascita}>Kiev, Ucraina</span>
 				</li>
 				<li>
 					<strong>Nazionalità:</strong>
-					<span>Ucraina</span>
+					<span th:text=*{nazionalita}>Ucraina</span>
 				</li>
 			</ul>
-		<p id="bio">
+		<p id="bio" th:text=*{bio}>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed risus vitae lacus commodo dapibus. Donec viverra lectus eget leo tincidunt, a consequat velit consequat. Sed vitae faucibus risus. Vivamus aliquam leo sit amet mi aliquet mollis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas luctus est eu nulla lobortis, non efficitur velit sollicitudin. Duis eros metus, malesuada nec molestie in, mollis semper arcu. Sed sed odio mattis, porta sapien eu, vulputate ligula. Fusce ultricies nisl id sapien maximus, at gravida enim elementum. Fusce nec rutrum mi. Praesent venenatis gravida tortor, at finibus est sodales et. Integer porta at metus quis lobortis. Ut et libero semper, commodo tortor at, ornare mauris. Maecenas pretium lacinia luctus. Praesent tincidunt sollicitudin risus, at lacinia metus efficitur sed.
 		</p>
 	</section>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/base.html :: head"></head>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheets/lista.css">
+</head>
+<body>
+
+	<nav th:replace="fragments/base.html :: navbar"></nav>
+
+	<header>
+		<h1>Artisti</h1>
+	</header>
+
+	<section class="list">
+		<ul>
+			<li th:each = "artista : ${artisti}">
+				<a href="" th:text="|${artista.nome} ${artista.cognome}|">Nome Artista</a>
+			</li>
+		</ul>
+	</section>
+
+	<footer th:replace="fragments/base.html :: footer">	</footer>
+
+</body>
+</html>

@@ -1,10 +1,14 @@
 # TODO
 
-- Fattorizzare con frammenti thymeleaf
-- Creare controller ?
-- Creare pagina per visualizzare le collezioni
-- Creare pagina per visualizzare gli autori
-- Creare pagina per accesso gestore
 - Chiedere al prof come intende "creare percorsi predisposti"
+- Gestire l'accesso e autenticazione del gestore
+- Scrivere casi d'uso e diagramma delle classi
 
 # DONE
+
++ Create classi model per persistenza
++ Fattorizzare con frammenti thymeleaf
++ Creare controller ?
++ Creare pagina per visualizzare le collezioni
++ Creare pagina per visualizzare gli autori
++ Creare pagina per accesso gestore

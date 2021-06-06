@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/base.html :: head"></head>
+<head>
+	<link rel="stylesheet" th:href="@{/stylesheets/login.css}">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/base.html :: navbar"></nav>
+
+	<header>
+		<h1>Login</h1>
+	</header>
+
+	<form action="/login" method="POST">
+
+			<input
+			name="username"
+			type="text"
+			placeholder="Username"
+			required />
+
+			<input 
+			name="password" 
+			type="password" 
+			placeholder="Password" 
+			required />
+
+			<button type="submit">Login</button>
+
+	</form>
+	
+	<footer th:replace="fragments/base.html :: footer">	</footer>
+
+</body>
+</html>
