@@ -1,13 +1,13 @@
 # TODO
 
 - Chiedere al prof come intende "creare percorsi predisposti"
-- Gestire l'accesso e autenticazione del gestore
 - Scrivere casi d'uso e diagramma delle classi
 - Raffinare la struttura delle entità
-- Sistemare il login
 
 # DONE
 
++ Gestire l'accesso e autenticazione del gestore
++ Sistemare il login
 + Create classi model per persistenza
 + Fattorizzare con frammenti thymeleaf
 + Creare controller ?

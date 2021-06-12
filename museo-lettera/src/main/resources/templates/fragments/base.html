@@ -15,7 +15,7 @@
 <nav th:fragment="navbar">
 	<a id="navbar-title" href="/">museo lettera</a>
 	<ul id="navbar-labels">
-		<li><a href="artisti">Autori</a></li>
+		<li><a th:href="@{/artisti}">Autori</a></li>
 		<li><a th:href="@{collezioni.html}">Collezioni</a></li>
 		<li><a th:href="@{#}">Informazioni</a></li>
 	</ul>
@@ -26,7 +26,7 @@
 	<p>Via dell'Arte 3, Roma (RM)
 	<br><a href="#">Orari di apertura</a></p>
 	<a href="mailto:info@museolettera.it">info@museolettera.it</a>
-	<a href="accesso-gestori">Accesso gestori</a>
+	<div><a th:href="@{/login}">Accesso gestori</a></div>
 </footer>
 
 </body>

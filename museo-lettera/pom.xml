@@ -8,11 +8,11 @@
 		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>it.uniroma3.siw</groupId>
+	<groupId>it.uniroma3.siw.spring</groupId>
 	<artifactId>museo-lettera</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>museo-lettera</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Progetto Museo Lettera</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -27,7 +27,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
 
 		<dependency>
