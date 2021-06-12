@@ -5,10 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.spring.service.ArtistaService;
+import it.uniroma3.siw.spring.service.CollezioneService;
 
 @Controller
 public class AppController {
@@ -16,28 +18,49 @@ public class AppController {
 	@Autowired
 	private ArtistaService artistaService;
 	
+	@Autowired
+	private CollezioneService collezioneService;
+	
 	 private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@RequestMapping (value="/artisti", method = RequestMethod.GET)
 	public String getArtisti(Model model) {
 		model.addAttribute("artisti", artistaService.getAll());
-		return "artisti.html";
+		return "artisti";
+	}
+	
+	@RequestMapping (value="/artisti/{id}", method = RequestMethod.GET)
+	public String getArtista(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("artista", artistaService.getArtista(id));
+		return "artista";
+	}
+	
+	@RequestMapping (value="/collezioni", method = RequestMethod.GET)
+	public String getCollezioni(Model model) {
+		model.addAttribute("collezioni", collezioneService.getAll());
+		return "collezioni";
+	}
+	
+	@RequestMapping (value="/collezioni/{id}", method = RequestMethod.GET)
+	public String getCollezione(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("collezioni", collezioneService.getCollezione(id));
+		return "collezione";
 	}
 	
 	@RequestMapping (value = {"/", "/index"}, method = RequestMethod.GET)
 	public String goToHome(Model model) {
-		return "index.html";
+		return "index";
 	}
 	
 	@RequestMapping (value = "/login", method = RequestMethod.GET)
 	public String accessoGestori(Model model) {
 		logger.debug("reached /login");
-		return "login.html";
+		return "login";
 	}
 	
 	@RequestMapping (value = "/default", method = RequestMethod.GET)
 	public String discriminatoreUtente(Model model) {
 		logger.debug("reached /default");
-		return "index";
+		return "index"; //TODO: da cambiare
 	}
 }

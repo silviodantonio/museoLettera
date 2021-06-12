@@ -15,7 +15,8 @@
 	<section class="list">
 		<ul>
 			<li th:each = "artista : ${artisti}">
-				<a href="" th:text="|${artista.nome} ${artista.cognome}|">Nome Artista</a>
+				<a th:href="@{'/artisti' + '/' + ${artista.id}}" 
+				   th:text="|${artista.nome} ${artista.cognome}|">Nome Artista</a>
 			</li>
 		</ul>
 	</section>

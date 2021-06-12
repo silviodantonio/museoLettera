@@ -14,6 +14,10 @@ header h1 {
 	line-height: 1.5rem;
 }
 
+#info li{
+	list-style: none;
+}
+
 #bio {
 	margin-top: 3%;
 	width: 70%;

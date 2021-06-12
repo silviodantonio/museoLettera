@@ -21,4 +21,9 @@ public class ArtistaService {
 		return (List<Artista>) artistaRepository.findAll();
 	}
 	
+	@Transactional
+	public Artista getArtista(Long id) {
+		return artistaRepository.findById(id).orElse(null);
+	}
+	
 }

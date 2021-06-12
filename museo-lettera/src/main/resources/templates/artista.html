@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html>
+<head th:replace="fragments/base.html :: head"></head>
 <head>
-	<title>Museo Lettera</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="stylesheets/navbar-footer.css">
-	<link rel="stylesheet" href="stylesheets/artista.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300">
+	<link rel="stylesheet" type="text/css" href="stylesheets/artista.css">
 </head>
-
 <body>
 
 	<header>
-		<h1 th:text="${autore.nome}">Yevheniia
-		<br th:text="${autore.cognome}">Berezyna</h1>
+		<h1 th:text="${artista.nome}">Yevheniia
+		<br th:text="${artista.cognome}">Berezyna</h1>
 	</header>
 
-	<section th:object=${autore}>
+	<section th:object=${artista}>
 			<ul id="info">
 				<li>
 					<strong>Data di nascita:</strong>
@@ -62,13 +56,7 @@
 		</div>
 	</section>
 
-	<footer>
-		<h1 id="footer-title">museo lettera</h1>
-		<p>Via dell'Arte 3, Roma (RM)
-			<br><a href="#">Orari di apertura</a>
-		</p>
-		<a href="mailto:info@museolettera.it">info@museolettera.it</a>	
-	</footer>
+	<footer th:replace="fragments/base.html :: footer"></footer>
 
 </body>
 
