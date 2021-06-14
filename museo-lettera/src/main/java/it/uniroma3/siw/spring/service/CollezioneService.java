@@ -26,4 +26,9 @@ public class CollezioneService {
 	public Collezione getCollezione(Long id) {
 		return collezioneRepository.findById(id).orElse(null);
 	}
+	
+	@Transactional
+	public Collezione inserisci(Collezione collezione) {
+		return collezioneRepository.save(collezione);
+	}
 }

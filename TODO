@@ -1,11 +1,14 @@
 # TODO
 
 - Chiedere al prof come intende "creare percorsi predisposti"
-- Scrivere casi d'uso e diagramma delle classi
+~ Scrivere casi d'uso e diagramma delle classi
 - Raffinare la struttura delle entità
+- Concludere la visualizzazione delle opere
+- Validatori
 
 # DONE
 
++ Terminare il salvataggio delle immagini
 + Gestire l'accesso e autenticazione del gestore
 + Sistemare il login
 + Create classi model per persistenza
@@ -14,3 +17,8 @@
 + Creare pagina per visualizzare le collezioni
 + Creare pagina per visualizzare gli autori
 + Creare pagina per accesso gestore
+
+# Casi d'uso
+
+1. L'amministratore può aggiungere ed eliminare le collezioni
+2. L'amministrazione può aggiungere ed eliminare opere di un autore

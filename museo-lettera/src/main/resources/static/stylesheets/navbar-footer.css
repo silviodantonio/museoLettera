@@ -26,6 +26,14 @@ nav ul {
 	width: 300px;
 }
 
+nav.gestoreNavbar ul {
+	display: flex;
+	justify-content: flex-end;
+	list-style: none;
+	position: relative;
+	top: 5px;
+}
+
 nav li {
 	display: inline;
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/base.html :: head"></head>
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/lista.css}">
+</head>
+<body>
+
+	<nav th:replace="fragments/gestoreBase.html :: navbar"></nav>
+
+	<header>
+		<h1>Gestore</h1>
+	</header>
+
+	<section class="list">
+		<ul>
+			<li>
+				<a th:href="@{collezioni}">Gestisci collezioni</a>
+			</li>
+			<li>
+				<a th:href="@{addOpera}">Gestisci opere</a>
+			</li>
+		</ul>
+	</section>
+	
+</body>
+</html>

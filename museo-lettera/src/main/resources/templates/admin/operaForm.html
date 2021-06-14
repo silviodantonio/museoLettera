@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/base.html :: head"></head>
+<head>
+	<link rel="stylesheet" th:href="@{/stylesheets/login.css}">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/gestoreBase.html :: navbar"></nav>
+
+	<header>
+		<h1>Aggiungi opera</h1>
+	</header>
+
+	<form th:action="@{/admin/addOpera}"
+		  method="POST" 
+		  enctype="multipart/form-data">
+
+			<select
+			name="autore"
+			required>
+				<option value="">Autore</option>
+				<option th:each = "artista : ${artisti}"
+						th:text = "|${artista.nome} ${artista.cognome}|"
+						th:value = "${artista.id}">
+				</option>
+			</select>
+
+			<input
+			name="titolo"
+			type="text"
+			placeholder="Titolo"
+			required/>
+
+			<textarea
+			name="descrizione"
+			placeholder="Descrizione"
+			cols="50"
+			rows="5">
+			</textarea>
+
+			<input 
+			name="anno" 
+			type="text" 
+			placeholder="Anno" 
+			required/>
+
+			<input 
+			name="image" 
+			type="file"
+			accept="image/*"
+			required/>
+
+			<div>
+				<button type="submit">Salva</button>
+				<button type="button">Annulla</button>
+			</div>
+			
+	</form>
+
+</body>
+</html>

@@ -57,10 +57,4 @@ public class AppController {
 		logger.debug("reached /login");
 		return "login";
 	}
-	
-	@RequestMapping (value = "/default", method = RequestMethod.GET)
-	public String discriminatoreUtente(Model model) {
-		logger.debug("reached /default");
-		return "index"; //TODO: da cambiare
-	}
 }

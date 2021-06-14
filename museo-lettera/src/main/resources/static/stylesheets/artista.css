@@ -8,14 +8,10 @@ header h1 {
 
 /* artist info section */
 
-#info {
-	list-style: none;
+#artistaInfo {
+	list-style-type: none; /* non viene applicato, perchè? */
 	display: inline;
 	line-height: 1.5rem;
-}
-
-#info li{
-	list-style: none;
 }
 
 #bio {

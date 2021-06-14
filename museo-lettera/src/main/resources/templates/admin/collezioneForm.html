@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="fragments/base.html :: head"></head>
+<head>
+	<link rel="stylesheet" th:href="@{/stylesheets/login.css}">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/gestoreBase.html :: navbar"></nav>
+
+	<header>
+		<h1>Aggiungi collezione</h1>
+	</header>
+
+	<form th:action="@{/admin/addCollezione}"
+		  method="POST" >
+
+			<select
+			id="curatore" name="curatore"
+			required>
+				<option value="">Curatore</option>
+				<option th:each = "curatore : ${curatori}"
+						th:text = "|${curatore.nome} ${curatore.cognome}|"
+						th:value = "${curatore.id}">
+				</option>
+			</select>
+
+			<input
+			name="titolo"
+			type="text"
+			placeholder="Titolo"
+			required/>
+
+			<textarea
+			name="descrizione"
+			placeholder="Descrizione"
+			cols="50"
+			rows="5">
+			</textarea>
+
+			<div>
+				<button type="submit">Salva</button>
+				<button type="button">Annulla</button>
+			</div>
+			
+	</form>
+
+</body>
+</html>

@@ -4,11 +4,7 @@ header h1 {
 	margin: 5% 0% 1%;
 }
 
-form {
-	
-}
-
-form * {
+form > * {
 	display: block;
 	margin: 15px 0px;
 }

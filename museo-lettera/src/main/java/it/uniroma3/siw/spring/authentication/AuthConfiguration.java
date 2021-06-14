@@ -10,6 +10,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
@@ -56,14 +57,15 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // NOTA: Spring gestisce il post di login automaticamente
                 .loginPage("/login")
                 // se il login ha successo, si viene rediretti al path /default
-                .defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/admin/operazioniGestore")
 
                 // logout paragraph: qui definiamo il logout
                 .and().logout()
                 // il logout è attivato con una richiesta GET a "/logout"
                 .logoutUrl("/logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 // in caso di successo, si viene reindirizzati alla /index page
-                .logoutSuccessUrl("/default")        
+                .logoutSuccessUrl("/")        
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
     }

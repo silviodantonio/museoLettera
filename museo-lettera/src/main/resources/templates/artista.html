@@ -2,17 +2,18 @@
 <html>
 <head th:replace="fragments/base.html :: head"></head>
 <head>
-	<link rel="stylesheet" type="text/css" href="stylesheets/artista.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/artista.css}">
 </head>
 <body>
 
+	<nav th:replace="fragments/base.html :: navbar"></nav>
+
 	<header>
-		<h1 th:text="${artista.nome}">Yevheniia
-		<br th:text="${artista.cognome}">Berezyna</h1>
+		<h1 th:text="|${artista.nome} ${artista.cognome}|">Yevheniia Berezyna</h1>
 	</header>
 
 	<section th:object=${artista}>
-			<ul id="info">
+			<ul id="artistaInfo">
 				<li>
 					<strong>Data di nascita:</strong>
 					<span th:text=*{dataNascita}>10 Giugno 1989</span>
