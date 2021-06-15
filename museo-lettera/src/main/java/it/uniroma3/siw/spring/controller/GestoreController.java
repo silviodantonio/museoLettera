@@ -84,10 +84,12 @@ public class GestoreController {
 		opera.setAnno(anno);
 		opera.setArtwork(artworkName);
 		
+		logger.debug(artworkName);
+		
 		// Lo salvo in locale sul server
 		String directory = "artworks/" + opera.getAutore().getId();
 		try {
-			FileUploadUtil.saveFile(directory, artworkName, multipartFile); // eccezione non gestita
+			FileUploadUtil.saveFile(directory, artworkName, multipartFile);
 			operaService.inserisci(opera);
 			logger.debug("opera salvata");
 		}
@@ -109,14 +111,14 @@ public class GestoreController {
 	
 	@RequestMapping (value = "admin/addCollezione", method = RequestMethod.POST)
 	public String submitAddOpera(Model model,
-		@ModelAttribute("curatore") Long id,
+		@ModelAttribute("curatore") String id,
 		@ModelAttribute("titolo") String titolo,
 		@ModelAttribute("descrizione") String descrizione) {
 		
 		Collezione collezione = new Collezione();
-		collezione.setCuratore(curatoreService.getCuratore(id));
+		collezione.setCuratore(curatoreService.getCuratore(Long.parseLong(id)));
 		
-		if(collezione.getId() == null) {
+		if(collezione.getCuratore() == null) {
 			logger.debug("Recieved null id");
 		}
 		

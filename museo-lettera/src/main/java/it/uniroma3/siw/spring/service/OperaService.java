@@ -19,4 +19,6 @@ public class OperaService {
 		return operaRepository.save(opera);
 	}
 	
+	//@Transactional
+	
 }

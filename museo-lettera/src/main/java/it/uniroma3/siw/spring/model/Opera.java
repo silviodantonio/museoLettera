@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.model;
 
+import java.beans.Transient;
+
 import javax.persistence.*;
 
 import lombok.Data;
@@ -19,5 +21,12 @@ public class Opera {
 	@ManyToOne
 	private Collezione collezione;
 	private String artwork;
+	
+	@Transient
+    public String getArtworkPath() {
+        if (artwork == null || id == null) return null;
+         
+        return "/artworks/" + autore.getId() + "/" + artwork;
+    }
 	
 }

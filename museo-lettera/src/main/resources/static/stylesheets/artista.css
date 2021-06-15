@@ -44,7 +44,6 @@ body > h2 {
 .image {
 	width: 100%;
 	padding-bottom: 130%;
-	background-color: black;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -60,26 +59,6 @@ body > h2 {
 
 .image:hover {
 	opacity: 80%;
-}
-
-#img1 {
-	background-image: url("images/yev1.jpg");
-}
-
-#img2 {
-	background-image: url("images/yev2.jpg");
-}
-
-#img3 {
-	background-image: url("images/yev3.jpg");
-}
-
-#img4 {
-	background-image: url("images/yev4.jpg");
-}
-
-#img5 {
-	background-image: url("images/yev5.jpg");
 }
 
 /* visualizzazione tablet */

@@ -44,13 +44,16 @@
 			<input 
 			name="anno" 
 			type="text" 
-			placeholder="Anno" 
+			placeholder="Anno"
+			minlength="4"
+			maxlength="4"
+			pattern="[0-9]{0,4}"
 			required/>
 
 			<input 
 			name="image" 
 			type="file"
-			accept="image/*"
+			accept="image/png, image/jpg, image/jpeg"
 			required/>
 
 			<div>

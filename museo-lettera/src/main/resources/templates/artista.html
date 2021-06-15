@@ -35,25 +35,9 @@
 	<h2>Opere</h2>
 	
 	<section id="images">
-		<div class="artworkWrapper">
-			<a href="#"><div class="image" id="img1"></div></a>
-			<h2>sommer / zeit<h2>
-		</div>
-		<div class="artworkWrapper">
-			<a href="opera.html"><div class="image" id="img2"></div></a>
-			<h2>suspect<h2>
-		</div>
-		<div class="artworkWrapper">
-			<a href="#"><div class="image" id="img3"></div></a>
-			<h2>psycho<h2>
-		</div>
-		<div class="artworkWrapper">
-			<a href="#"><div class="image" id="img4"></div></a>
-			<h2>to be wild<h2>
-		</div>
-		<div class="artworkWrapper">
-			<a href=""><div class="image" id="img5"></div></a>
-			<h2>active<h2>
+		<div class="artworkWrapper" th:each="opera : ${artista.opere}">
+			<a href="#"><div class="image" th:style="'background-image: url(' + @{${opera.artworkPath}} + ');'"></div></a>
+			<h2 th:text="${opera.nome}">sommer / zeit</h2>
 		</div>
 	</section>
 
