@@ -38,10 +38,6 @@ public class OperaValidator implements Validator {
 			errors.reject("anno.futuro");
 		}
 		
-		if (this.operaService.alreadyExists(opera)) {
-			logger.debug("opera duplicata");
-			errors.reject("titolo.duplicato");
-		}
 	}
 
 	@Override

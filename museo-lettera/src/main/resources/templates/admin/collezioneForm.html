@@ -15,7 +15,12 @@
 	</header>
 
 	<form th:action="@{/admin/addCollezione}"
-		  method="POST" >
+		  method="POST"
+		  th:object="${collezione}">
+		  
+		<div th:if="${#fields.hasGlobalErrors()}">
+  				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
 
 			<select
 			name="curatore"
@@ -28,12 +33,14 @@
 			</select>
 
 			<input
+			th:field="*{nome}"
 			name="titolo"
 			type="text"
 			placeholder="Titolo"
 			required/>
 
 			<textarea
+			th:field="*{descrizione}"
 			name="descrizione"
 			placeholder="Descrizione"
 			cols="50"
