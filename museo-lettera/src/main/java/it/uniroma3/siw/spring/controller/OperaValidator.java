@@ -24,20 +24,25 @@ public class OperaValidator implements Validator {
 	@Override
 	public void validate(Object o, Errors errors) {
 		
+		logger.debug("Invocato opera validator");
+		
 		Opera opera = (Opera)o;
 		int annoAttuale = Calendar.getInstance().get(Calendar.YEAR);
 		int annoOpera = Integer.parseInt(opera.getAnno());
 		
+		logger.debug("Anno attuale " + annoAttuale);
+		logger.debug("Anno opera " + annoOpera);
+		
 		if(annoOpera >= annoAttuale) {
 			logger.debug("opera nel futuro");
-			errors.reject("Anno non valido");
+			errors.reject("anno.futuro");
 		}
 		
-		//if (this.operaService.alreadyExists(opera)) {
+		if (this.operaService.alreadyExists(opera)) {
 			logger.debug("opera duplicata");
-			errors.reject("duplicato");
+			errors.reject("titolo.duplicato");
 		}
-	//}
+	}
 
 	@Override
 	public boolean supports(Class<?> aClass) {

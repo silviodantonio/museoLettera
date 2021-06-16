@@ -19,8 +19,16 @@
 					<span th:text=*{dataNascita}>10 Giugno 1989</span>
 				</li>
 				<li>
-					<strong>Luogo di nascita</strong>
+					<strong>Luogo di nascita:</strong>
 					<span th:text=*{luogoNascita}>Kiev, Ucraina</span>
+				</li>
+				<li th:if="*{dataMorte}">
+					<strong>Data di morte:</strong>
+					<span th:text=*{dataMorte}>Kiev, Ucraina</span>
+				</li>
+				<li th:if="*{luogoMorte}">
+					<strong>Luogo di morte:</strong>
+					<span th:text=*{luogoMorte}>Kiev, Ucraina</span>
 				</li>
 				<li>
 					<strong>Nazionalità:</strong>
@@ -36,7 +44,7 @@
 	
 	<section id="images">
 		<div class="artworkWrapper" th:each="opera : ${artista.opere}">
-			<a href="#"><div class="image" th:style="'background-image: url(' + @{${opera.artworkPath}} + ');'"></div></a>
+			<a th:href="@{'/opere/' + ${opera.id}}"><div class="image" th:style="'background-image: url(' + @{${opera.artworkPath}} + ');'"></div></a>
 			<h2 th:text="${opera.nome}">sommer / zeit</h2>
 		</div>
 	</section>

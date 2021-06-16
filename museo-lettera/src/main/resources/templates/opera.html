@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: head"></head>
+<head>
+	<link rel="stylesheet" th:href="@{/stylesheets/opera.css}">
+</head>
+
+<body>
+	
+	<nav th:replace="fragments/base.html :: navbar"></nav>
+
+	<header>
+		<h1 th:text="${opera.nome}">Suspect</h1>
+	</header>
+
+	<section class="wrapper">
+
+		<div id="artwork" class="image" 
+			 th:style="'background-image: url(' + @{${opera.artworkPath}} + ');'"></div>
+
+		<div id="artworkInfo">
+				<ul id="info">
+					<li>
+						<strong>Autore:</strong>
+						<span><a th:href="@{'/artisti/' + ${opera.autore.id}}" 
+								 th:text="|${opera.autore.nome} ${opera.autore.cognome}|">Yevheniia Berezyna</a></span>
+					</li>
+					<li>
+						<strong>Anno:</strong>
+						<span th:text="${opera.anno}"></span>
+					</li>
+					<li th:if="${opera.collezione}">
+						<strong>Collezione:</strong>
+						<span><a th:href="@{'/collezioni/' + ${opera.collezione.id}}"
+								 th:text="${opera.collezione.nome}">Grigio sperimentale</a></span>
+					</li>
+				</ul>
+			<p id="description" th:text="${opera.descrizione}">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed risus vitae lacus commodo dapibus.
+			</p>
+		</div>
+
+	</section>
+
+	<footer th:replace="fragments/base :: footer">
+	</footer>
+
+</body>
+
+</html>

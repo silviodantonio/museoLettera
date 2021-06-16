@@ -31,4 +31,18 @@ public class CollezioneService {
 	public Collezione inserisci(Collezione collezione) {
 		return collezioneRepository.save(collezione);
 	}
+	
+	@Transactional
+	public boolean alreadyExists(Collezione collezione) {
+		List<Collezione> collezioni = this.collezioneRepository.findByNome(collezione.getNome());
+		if (collezioni.size() > 0)
+			return true;
+		else 
+			return false;
+	}
+	
+	@Transactional
+	public void elimina(Long id) {
+		collezioneRepository.deleteById(id);
+	}
 }

@@ -15,7 +15,7 @@ header h1 {
 	margin: 10px 0px;
 }
 
-.list a {
+.list a, span {
 	font-size: calc(1rem + 0.5vw);
 	text-decoration: none;
 }
@@ -26,4 +26,17 @@ header h1 {
 
 .list a:hover {
 	color: gray;
+}
+
+.lineaEliminabile {
+	display: flex;
+	justify-content: space-between;
+}
+
+.lineaEliminabile a:link, .lineaEliminabile a:visited {
+	color: crimson;
+}
+
+.lineaEliminabile a:hover {
+	color: salmon;
 }

@@ -8,4 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface CollezioneRepository extends CrudRepository<Collezione, Long>{
 	
 	public List<Collezione> findAll();
+	
+	public List<Collezione> findByNome(String nome);
 }

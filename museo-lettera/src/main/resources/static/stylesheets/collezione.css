@@ -3,11 +3,11 @@
 
 header h1 {
 	font-size: calc(2.5rem + 1.2vw);
-	margin: 1% 0% 1%;
+	margin: 1% 0% 4%;
 }
 
-header p {
-	margin-bottom: 8%;
+header {
+	margin-bottom: 6%;
 }
 
 /* images section */
@@ -39,7 +39,11 @@ header p {
 	text-transform: uppercase;
 	font-size: calc(1rem + 1.2vw);
 	margin-top: 20px;
-	margin-bottom: -20px;
+	margin-bottom: 10px;
+}
+
+.textContainer {
+	spacing: auto;
 }
 
 .artworkWrapper a {
@@ -58,26 +62,6 @@ header p {
 
 .image:hover {
 	opacity: 80%;
-}
-
-#img1 {
-	background-image: url("images/yev1.jpg");
-}
-
-#img2 {
-	background-image: url("images/yev2.jpg");
-}
-
-#img3 {
-	background-image: url("images/yev3.jpg");
-}
-
-#img4 {
-	background-image: url("images/yev4.jpg");
-}
-
-#img5 {
-	background-image: url("images/yev5.jpg");
 }
 
 /* visualizzazione tablet */

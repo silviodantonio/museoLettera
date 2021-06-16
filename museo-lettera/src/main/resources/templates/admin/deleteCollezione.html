@@ -9,22 +9,17 @@
 	<nav th:replace="fragments/gestoreBase.html :: navbar"></nav>
 
 	<header>
-		<h1>Gestore</h1>
+		<h1>Elimina collezioni</h1>
 	</header>
 
 	<section class="list">
 		<ul>
-			<li>
-				<a th:href="@{addCollezione}">Aggiungi collezione</a>
-			</li>
-			<li>
-				<a th:href="@{deleteCollezione}">Elimina collezione</a>
-			</li>
-			<li>
-				<a th:href="@{addOpera}">Aggiungi opera</a>
+			<li class="lineaEliminabile" th:each = "collezione : ${collezioni}">
+				<span th:text="${collezione.nome}">Nome Collezione</span>
+				<a th:href="@{'deleteCollezione/' + ${collezione.id}}">Elimina</a>
 			</li>
 		</ul>
 	</section>
-	
+
 </body>
 </html>

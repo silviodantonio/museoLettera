@@ -45,6 +45,7 @@ nav li {
 	text-decoration: none;
 	font-family: 'Roboto Slab';
 	font-size: calc(1em + .7vw);
+	font-weight: 400;
 }
 
 #navbar-title:link, #navbar-title:visited {

@@ -15,7 +15,7 @@
 	<section class="list">
 		<ul>
 			<li th:each = "collezione : ${collezioni}">
-				<a href="" th:text="${collezione.nome}">Nome Collezione</a>
+				<a th:href="@{'/collezioni/' + ${collezione.id}}" th:text="${collezione.nome}">Nome Collezione</a>
 			</li>
 		</ul>
 	</section>

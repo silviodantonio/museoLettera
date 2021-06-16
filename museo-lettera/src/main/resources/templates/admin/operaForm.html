@@ -16,7 +16,14 @@
 
 	<form th:action="@{/admin/addOpera}"
 		  method="POST" 
-		  enctype="multipart/form-data">
+		  enctype="multipart/form-data"
+		  th:object="${opera}">
+		  
+			<!--
+		  	<div th:if="${#fields.hasGlobalErrors()}">
+  				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+			</div>
+			-->
 
 			<select
 			name="autore"

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.spring.service.ArtistaService;
 import it.uniroma3.siw.spring.service.CollezioneService;
+import it.uniroma3.siw.spring.service.OperaService;
 
 @Controller
 public class AppController {
@@ -20,6 +21,9 @@ public class AppController {
 	
 	@Autowired
 	private CollezioneService collezioneService;
+	
+	@Autowired
+	private OperaService operaService;
 	
 	 private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -35,6 +39,12 @@ public class AppController {
 		return "artista";
 	}
 	
+	@RequestMapping (value="/opere/{id}", method = RequestMethod.GET)
+	public String getOpera(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("opera", operaService.getOpera(id));
+		return "opera";
+	}
+	
 	@RequestMapping (value="/collezioni", method = RequestMethod.GET)
 	public String getCollezioni(Model model) {
 		model.addAttribute("collezioni", collezioneService.getAll());
@@ -43,7 +53,7 @@ public class AppController {
 	
 	@RequestMapping (value="/collezioni/{id}", method = RequestMethod.GET)
 	public String getCollezione(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("collezioni", collezioneService.getCollezione(id));
+		model.addAttribute("collezione", collezioneService.getCollezione(id));
 		return "collezione";
 	}
 	

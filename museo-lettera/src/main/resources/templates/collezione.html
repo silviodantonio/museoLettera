@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base :: head"></head>
+<head>
+	<link rel="stylesheet" th:href="@{/stylesheets/collezione.css}">
+</head>
+
+<body>
+	
+	<nav th:replace="fragments/base :: navbar"></nav>
+
+	<header>
+		<h1 th:text="${collezione.nome}">Grigio Sperimentale</h1>
+		<p th:text="|A cura di ${collezione.curatore.nome} ${collezione.curatore.cognome}|">A cura di Domenico Bini</p>
+		<p th:text="${collezione.descrizione}"></p>
+	</header>
+	
+	<section id="images">
+		<div class="artworkWrapper" th:each="opera : ${collezione.opere}">
+			<a th:href="@{'/opere/' + ${opera.id}}">
+				<div class="image" th:style="'background-image: url(' + @{${opera.artworkPath}} + ');'"></div>
+			</a>
+			
+			<div class="textContainer">
+				<h2 class="title" th:text="${opera.nome}">sommer / zeit</h2>
+				<a th:href="@{'/artisti/' + ${opera.autore.id}}"
+					th:text="|${opera.autore.nome} ${opera.autore.cognome}|">Yevheniia Berezyna</a>
+			</div>
+		</div>
+	</section>
+
+	<footer th:replace="fragments/base :: footer">
+	</footer>
+
+</body>
+
+</html>

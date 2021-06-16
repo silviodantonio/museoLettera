@@ -1,13 +1,13 @@
 # TODO
 
-- Chiedere al prof come intende "creare percorsi predisposti"
-~ Scrivere casi d'uso e diagramma delle classi
+~ Chiedere al prof come intende "creare percorsi predisposti"
+x Scrivere casi d'uso e diagramma delle classi
 - Raffinare la struttura delle entità
-~ Concludere la visualizzazione delle opere
-- Validatori
+~ Validatori
 
 # DONE
 
++ Concludere la visualizzazione delle opere
 + Terminare il salvataggio delle immagini
 + Gestire l'accesso e autenticazione del gestore
 + Sistemare il login
