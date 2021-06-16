@@ -19,6 +19,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 
 import it.uniroma3.siw.spring.FileUploadUtil;
+import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.repository.CollezioneRepository;
@@ -68,53 +69,59 @@ public class GestoreController {
 	public String goToAddOpera(Model model) {
 		logger.debug("reached operaForm");
 		model.addAttribute("artisti", artistaService.getAll());
+		model.addAttribute("opera", new Opera());
+		model.addAttribute("artista", new Artista());
+		model.addAttribute("collezioni", collezioneService.getAll());
 		return "admin/operaForm";
 	}
 	
 	@RequestMapping (value = "admin/addOpera", method = RequestMethod.POST)
 	public String submitAddOpera(Model model,
-		@ModelAttribute("opera") Opera operaValues,
-		@ModelAttribute("autore") String id,
-		@ModelAttribute("titolo") String titolo,
-		@ModelAttribute("descrizione") String descrizione,
-		@ModelAttribute("anno") String anno,
+		@ModelAttribute("collezione") String collezione,
+		@ModelAttribute("artista") Artista artista,
+		@ModelAttribute("opera") Opera opera,
 		@RequestParam("image") MultipartFile multipartFile,
 		BindingResult bindingResult) {
-		
-		logger.debug("reached operaForm");
-		// Ottengo il nome del file immagine "pulito"
-		String artworkName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-		
-		Opera opera = new Opera();
-		opera.setAutore(artistaService.getArtista(Long.parseLong(id)));
-		
-		if(opera.getAutore() == null) {
-			logger.debug("Autore null");
-		}
-		
-		opera.setNome(titolo);
-		opera.setDescrizione(descrizione);
-		opera.setAnno(anno);
-		opera.setArtwork(artworkName);
-		
-		logger.debug(artworkName);
 		
 		this.operaValidator.validate(opera, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
-			// Lo salvo in locale sul server
-			String directory = "artworks/" + opera.getAutore().getId();
-			try {
-				FileUploadUtil.saveFile(directory, artworkName, multipartFile);
-				operaService.inserisci(opera);
-				logger.debug("opera salvata");
+
+			opera.setAutore(artista);
+			
+			if (this.operaService.alreadyExists(opera)) {
+				logger.debug("opera duplicata");
+				bindingResult.reject("titolo.duplicato");
+				model.addAttribute("artisti", artistaService.getAll());
+				return "admin/operaForm.html";
 			}
-			catch (IOException ioe) {
-				return "admin/operazioniGestore";
+			else {
+				
+				opera.setCollezione(collezioneService.getCollezione(Long.parseLong(collezione)));
+			
+				//fornisco il path di salvataggio delle immagini
+				String directory = "artworks/" + artista.getId();
+				
+				// Ottengo il nome del file immagine "pulito"
+				String artworkName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+							
+				try {
+					FileUploadUtil.saveFile(directory, artworkName, multipartFile);
+					opera.setArtwork(artworkName);
+					operaService.inserisci(opera);
+					logger.debug("opera salvata");
+				}
+				
+				catch (IOException ioe) {
+					return "admin/operazioniGestore.html";
+				}
+				
+				return "admin/operazioniGestore.html";
 			}
-			return "admin/operazioniGestore.html";
 		}
 		
+		model.addAttribute("collezioni", collezioneService.getAll());
+		model.addAttribute("artisti", artistaService.getAll());
 		return "admin/operaForm.html";
 	}
 	
@@ -124,34 +131,26 @@ public class GestoreController {
 	public String goToAddCollezione(Model model) {
 		logger.debug("reached collezioneForm");
 		model.addAttribute("curatori", curatoreService.getAll());
+		model.addAttribute("collezione", new Collezione());
 		return "admin/collezioneForm";
 	}
 	
 	@RequestMapping (value = "admin/addCollezione", method = RequestMethod.POST)
 	public String submitAddOpera(Model model,
 		@ModelAttribute("curatore") String id,
-		@ModelAttribute("titolo") String titolo,
-		@ModelAttribute("descrizione") String descrizione,
+		@ModelAttribute("collezione") Collezione collezione,
 		BindingResult bindingResult) {
-		
-		Collezione collezione = new Collezione();
-		collezione.setCuratore(curatoreService.getCuratore(Long.parseLong(id)));
-		
-		if(collezione.getCuratore() == null) {
-			logger.debug("Recieved null id");
-		}
-		
-		collezione.setNome(titolo);
-		collezione.setDescrizione(descrizione);
 		
 		this.collezioneValidator.validate(collezione, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
+			collezione.setCuratore(curatoreService.getCuratore(Long.parseLong(id)));
 			collezioneService.inserisci(collezione);
 			logger.debug("opera salvata");
 			return "admin/operazioniGestore.html";
 		}
 		
+		model.addAttribute("curatori", curatoreService.getAll());
 		return "admin/collezioneForm.html";
 	}
 	

@@ -19,14 +19,13 @@
 		  enctype="multipart/form-data"
 		  th:object="${opera}">
 		  
-			<!--
 		  	<div th:if="${#fields.hasGlobalErrors()}">
   				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 			</div>
-			-->
 
 			<select
-			name="autore"
+			th:field="${artista.id}"
+			name="artista"
 			required>
 				<option value="">Autore</option>
 				<option th:each = "artista : ${artisti}"
@@ -36,19 +35,13 @@
 			</select>
 
 			<input
-			name="titolo"
+			th:field="*{nome}"
 			type="text"
 			placeholder="Titolo"
 			required/>
-
-			<textarea
-			name="descrizione"
-			placeholder="Descrizione"
-			cols="50"
-			rows="5">
-			</textarea>
-
-			<input 
+			
+			<input
+			th:field="*{anno}"
 			name="anno" 
 			type="text" 
 			placeholder="Anno"
@@ -56,6 +49,24 @@
 			maxlength="4"
 			pattern="[0-9]{0,4}"
 			required/>
+
+			<textarea
+			th:field="*{descrizione}"
+			name="descrizione"
+			placeholder="Descrizione"
+			cols="50"
+			rows="5">
+			</textarea>
+			
+			<select
+			th:field="*{collezione}"
+			name="collezione">
+				<option value="">Collezione</option>
+				<option th:each = "collezione : ${collezioni}"
+						th:text = "${collezione.nome}"
+						th:value = "${collezione.id}">
+				</option>
+			</select>
 
 			<input 
 			name="image" 
